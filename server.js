@@ -11,7 +11,10 @@ const app = express()
 
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: "https://inkimage.netlify.app",
+  credentials: true
+}));
 await connectDB()
 
 app.use('/api/user', userRouter)
